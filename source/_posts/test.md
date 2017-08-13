@@ -12,3 +12,7 @@ category: technology
 ```xml
 <div>测试标题</div>
 ```
+
+```xml
+<img src="your avatar url">
+```
