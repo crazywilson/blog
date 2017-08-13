@@ -8,7 +8,8 @@ branches:
   only:
   - master
   - master-tab
-
+addons:
+  ssh_known_hosts: github.com/wensonchen/wensonchen.github.io
 #cache:
 #  directories:
 #    - node_modules
