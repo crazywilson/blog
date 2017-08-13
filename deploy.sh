@@ -3,7 +3,11 @@ hexo g
 
 gulp build
 
-tar -czvf blog.tar.gz docs/
+rm -rf public/
+
+mv docs/ public
+
+tar -czvf blog.tar.gz public/
 
 scp blog.tar.gz flash:/data
 

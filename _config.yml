@@ -77,12 +77,5 @@ theme: jekyll-theme-cayman
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ftpsync
-  host: 47.93.219.247
-  user: root
-  pass: c1676051021@
-  remote: /data/app
-  port: 80
-  ignore:
-  connections: 1
-  verbose: true
+- type: git
+  repo: git@github.com:wensonchen/wensonchen.github.io.git
