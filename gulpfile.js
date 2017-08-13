@@ -8,14 +8,14 @@ const revReplace = require("gulp-rev-replace");
 const runSequence = require('run-sequence');
 
 gulp.task('clean', function() {
-    return del(['dist', 'rev']);
+    return del(['docs', 'rev']);
 });
 
 gulp.task('copy', function() {
     return gulp.src(['public/**/*.html', 'public/**/*.xml', 'public/favicon.ico'], {
             base: 'public'
         })
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest('docs/'))
 });
 
 gulp.task('uglify', function() {
@@ -49,20 +49,20 @@ gulp.task("rev", function() {
             base: "public"
         })
         .pipe(rev())
-        .pipe(gulp.dest("dist"))
+        .pipe(gulp.dest("docs"))
         .pipe(rev.manifest())
         .pipe(gulp.dest("rev"))
 })
 
 gulp.task("revreplace", function() {
     var manifest = gulp.src("rev/**/*.json");
-    return gulp.src(["dist/js/**/*.js", "dist/css/**/*.css", 'dist/**/*.{jpg,png,svg,gif}', "dist/**/*.html"], {
-            base: "dist"
+    return gulp.src(["docs/js/**/*.js", "docs/css/**/*.css", 'docs/**/*.{jpg,png,svg,gif}', "docs/**/*.html"], {
+            base: "docs"
         })
         .pipe(revReplace({
             manifest: manifest
         }))
-        .pipe(gulp.dest("dist"));
+        .pipe(gulp.dest("docs"));
 });
 
 gulp.task('build', function(cb) {
